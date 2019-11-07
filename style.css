@@ -1,0 +1,102 @@
+body {
+	color: white;
+	background-color: darkgray;
+	font: bold italic large Palatino, serif;
+}
+
+h1 {
+	color: red;
+	letter-spacing: 5pt;
+}
+
+h2 {
+	color: orange;
+}
+
+h3 {
+	 color: yellow;
+}
+
+p {
+	color: pink;
+	/*text-indent: 1cm;*/
+}
+
+table {
+	color: red;
+	background-color: blue;
+	
+}
+
+thead {
+	background-color: gray;
+	color: pink;
+	text-transform: uppercase;
+}
+
+tr td:nth-child(1) {
+	background-color: green;
+}
+
+tr td:nth-child(2) {
+	background-color: yellow;
+}
+
+ol {
+	list-style-type: upper-roman;
+}
+
+li ol {
+	list-style-type: lower-roman;
+}
+
+li ol li ol{
+	list-style-type: lower-greek;
+}
+
+#ml {
+	width:20%;
+	height:20%;
+	float: left;
+}
+
+#ag {
+	width:20%;
+	height:20%;
+	float: right;
+}
+
+#main, #submenu {
+	background-color: black;
+	max-width: 960px;
+	padding: 20px;
+	margin: auto;
+	border: 2px solid blueviolet;
+	float: left;
+}
+
+#menu {
+	background-color: beige;
+	max-width: 960px;
+	padding: 20px;
+	margin: auto;
+	border: 2px solid blueviolet;
+	position: fixed;
+	top: 0;
+	right: 0;
+}
+
+a:hover {
+	background-color: red;
+	color: white;
+	cursor: default;
+}
+
+p:first-letter {
+	color: chartreuse;
+	font-size: 50px;
+	float: left;
+}
+
+
+

@@ -4,9 +4,10 @@
 <head>
     <title>Ćwiczenie 3</title>
     <meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8"/>
+	<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div>
+<div id="main">
     <h1>Sekcja 1</h1>
     <table border="1">
         <colgroup>
@@ -22,9 +23,7 @@
         </thead>
 		<tfoot>
 		<tr>
-			<td>Stopka lewa</td>
-			<td>stopka srodkowa</td>
-			<td>stopka prawa</td>
+			<td colspan="3" align="center">Stopka</td>
 		</tr>
 		</tfoot>
         <tbody>
@@ -59,7 +58,7 @@
     <h1>Sekcja 2</h1>
     <ol>
         <li> Element 1
-            <ul>
+            <ol>
                 <li> Next lvl</li>
                 <li> Next lvl</li>
                 <li> Next lvl
@@ -69,18 +68,18 @@
                         <li> Rabbit hole</li>
                     </ol>
                 </li>
-            </ul>
+            </ol>
         </li>
         <li> Element 2
             <ol>
                 <li>Jeden</li>
                 <li>Dwa</li>
                 <li>Trzy
-                    <ul>
+                    <ol>
                         <li>A</li>
                         <li>B</li>
                         <li>C</li>
-                    </ul>
+                    </ol>
                 </li>
             </ol>
         </li>
@@ -105,7 +104,7 @@
         <dd>- myślowe odzwierciedlenie istotnych cech przedmiotów lub zjawisk</dd>
     </dl>
 </div>
-<div>
+<div id="menu">
     <h1>Menu</h1>
     <ul>
         <li><a href="http://charon.kis.agh.edu.pl/~swiastan/cw1.html">
