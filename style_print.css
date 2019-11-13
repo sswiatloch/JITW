@@ -1,0 +1,51 @@
+/*ćwiczenie 7*/
+
+#menu, #hide, #bottom {
+    display: none;
+}
+
+h1 {
+    letter-spacing: 5pt;
+}
+
+p {
+    margin-bottom: 0
+}
+
+p + p {
+    text-indent: 1.5em;
+    margin-top: 0
+}
+
+ol {
+    list-style-type: upper-roman;
+}
+
+li ol {
+    list-style-type: lower-roman;
+}
+
+li ol li ol {
+    list-style-type: lower-greek;
+}
+
+#ml {
+    width: 20%;
+    height: 20%;
+    float: left;
+}
+
+#ag {
+    width: 20%;
+    height: 20%;
+    float: right;
+}
+
+p:first-letter {
+    font-weight: bold;
+}
+
+img {
+    filter: grayscale(100%);
+}
+

@@ -1,0 +1,25 @@
+/*ćwiczenie 8*/
+
+#main {
+    position: relative;
+}
+
+#menu {
+    width: 100%;
+    left: 8px;
+    top: 82px;
+    position: absolute;
+}
+
+#menu li {
+    width: 100%;
+    float: left;
+}
+
+#content {
+    width: 100%;
+}
+
+#title {
+    margin-bottom: 60px;
+}

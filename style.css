@@ -1,102 +1,179 @@
+/*ćwiczenie 1*/
+
 body {
-	color: white;
-	background-color: darkgray;
-	font: bold italic large Palatino, serif;
+    color: white;
+    background-color: darkgray;
+    font: bold italic large Palatino, serif;
 }
 
 h1 {
-	color: red;
-	letter-spacing: 5pt;
+    color: red;
+    letter-spacing: 5pt;
 }
 
 h2 {
-	color: orange;
+    color: orange;
 }
 
 h3 {
-	 color: yellow;
+    color: yellow;
 }
 
 p {
-	color: pink;
-	/*text-indent: 1cm;*/
+    color: pink;
+    margin-bottom: 0
 }
 
-table {
-	color: red;
-	background-color: blue;
-	
+p + p {
+    text-indent: 1.5em;
+    margin-top: 0
 }
 
-thead {
-	background-color: gray;
-	color: pink;
-	text-transform: uppercase;
+/*ćwiczenie 2*/
+
+table, tr, td {
+    color: red;
+    background-color: lightskyblue;
+    border: 2px solid darkblue;
 }
 
-tr td:nth-child(1) {
-	background-color: green;
+th, tfoot tr td {
+    background-color: gray;
+    color: pink;
+    text-transform: uppercase;
 }
 
-tr td:nth-child(2) {
-	background-color: yellow;
+tbody tr td:nth-child(1) {
+    background-color: blue;
 }
+
+tbody tr td:nth-child(2) {
+    background-color: blueviolet;
+}
+
+#hide {
+    display: none;
+}
+
+/*ćwiczenie 3*/
 
 ol {
-	list-style-type: upper-roman;
+    list-style-type: upper-roman;
 }
 
 li ol {
-	list-style-type: lower-roman;
+    list-style-type: lower-roman;
 }
 
-li ol li ol{
-	list-style-type: lower-greek;
+li ol li ol {
+    list-style-type: lower-greek;
 }
+
+/*ćwiczenie 4*/
 
 #ml {
-	width:20%;
-	height:20%;
-	float: left;
+    width: 20%;
+    height: 20%;
+    float: left;
 }
 
 #ag {
-	width:20%;
-	height:20%;
-	float: right;
+    width: 20%;
+    height: 20%;
+    float: right;
 }
 
-#main, #submenu {
-	background-color: black;
-	max-width: 960px;
-	padding: 20px;
-	margin: auto;
-	border: 2px solid blueviolet;
-	float: left;
+/*ćwiczenie 5*/
+
+#main {
+    background-color: black;
+    max-width: 960px;
+    padding: 20px;
+    margin: auto;
+    border: 2px solid blueviolet;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+#content {
+    width: calc(100% - 200px);
+    float: right;
 }
 
 #menu {
-	background-color: beige;
-	max-width: 960px;
-	padding: 20px;
-	margin: auto;
-	border: 2px solid blueviolet;
-	position: fixed;
-	top: 0;
-	right: 0;
+    width: 160px;
+    position: fixed;
+    top: 10px;
+    text-align: center;
+}
+
+
+#menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+#menu ul li {
+    height: 40px;
+    width: 160px;
+    background-color: gray;
+    border: 2px solid blueviolet;
+    margin: 0 0 3px 0;
+    overflow: hidden;
+}
+
+#menu ul li:first-child {
+    color: red;
+    font-size: 28px;
+}
+
+#menu ul li a {
+    display: block;
+    padding: 10px;
+    height: 40px;
+    width: 140px;
+    margin: 0 0 3px 0;
+}
+
+/*ćwiczenie 6*/
+
+p:first-letter {
+    color: darkred;
+    font-weight: bold;
+}
+
+
+a {
+    color: white;
+    text-decoration: none;
 }
 
 a:hover {
-	background-color: red;
-	color: white;
-	cursor: default;
+    background-color: white;
+    color: black;
+    cursor: default;
 }
 
-p:first-letter {
-	color: chartreuse;
-	font-size: 50px;
-	float: left;
-}
+/*ćwiczenie 9*/
 
+@media screen and (max-width: 800px) {
+    #menu {
+        left: 0;
+        top: -18px;
+    }
+
+    #menu ul li:not(:first-child) {
+        display: none;
+    }
+
+    #menu:hover ul li:not(:first-child) {
+        display: block;
+    }
+
+    #content {
+        width: 100%;
+    }
+
+}
 
 
