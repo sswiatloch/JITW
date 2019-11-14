@@ -34,7 +34,7 @@ p + p {
 table, tr, td {
     color: red;
     background-color: lightskyblue;
-    border: 2px solid darkblue;
+    border: 2px solid blueviolet;
 }
 
 th, tfoot tr td {
@@ -44,11 +44,11 @@ th, tfoot tr td {
 }
 
 tbody tr td:nth-child(1) {
-    background-color: blue;
+    background-color: darkblue;
 }
 
 tbody tr td:nth-child(2) {
-    background-color: blueviolet;
+    background-color: blue;
 }
 
 #hide {
