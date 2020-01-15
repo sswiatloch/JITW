@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Lab JS batak</title>
+<style type="text/css">
+div#d1, div#d2, div#d3, div#d4 {
+	background-color: red;
+	width: 50px;
+	height: 50px;
+	position: absolute;
+}
+div#d1 {
+	top: 10px;
+}
+div#d2 {
+	right: 10px;
+}
+div#d3 {
+	bottom: 10px;
+}
+div#d4 {
+	bottom: 10px;
+	right: 10px;
+}
+div#srodek {
+	text-align: center;
+}
+</style>
+
+<script type="text/javascript">
+var czasStart;
+var czasStop;
+var czasReakcji;
+var losowyKwadrat;
+var sumaCzasow = 0;
+
+function loop() {
+	for (var i = 0; i < 10; i++) {
+		start();
+	}
+	var sredniCzas = sumaCzasow / 10;
+	var komunikat = document.createElement('p');
+	komunikat.innerHTML = sredniCzas;
+}
+
+function start() {
+	losowyKwadrat = Math.ceil(Math.random()*4);
+	document.getElementById("d"+losowyKwadrat).style.background = "green";
+	czasStart = new Date();
+}
+
+function wcisnieto(n) {
+	if (n == losowyKwadrat) {
+		czasStop = new Date();
+		czasReakcji = (czasStop.getTime()-czasStart.getTime())/1000
+		document.getElementById("d"+losowyKwadrat).style.background = "red";
+		var nowyCzasReakcji = document.createElement('p');
+		nowyCzasReakcji.innerHTML = czasReakcji;
+		document.getElementById("srodek").appendChild(nowyCzasReakcji);
+		sumaCzasow += czasReakcji;
+		losowyKwadrat = 0;
+	}
+}
+
+</script>
+
+</head>
+<body>
+	<div id="d1" onclick="wcisnieto(1);"></div>
+	<div id="d2" onclick="wcisnieto(2);"></div>
+	<div id="d3" onclick="wcisnieto(3);"></div>
+	<div id="d4" onclick="wcisnieto(4);"></div>
+	<div id="srodek">
+		<form action="#">
+			<p><input type="button" value="start" onclick="loop();" /></p>
+		</form>
+		<p id="komunikat"></p>
+	</div>
+</body>
+</html>
