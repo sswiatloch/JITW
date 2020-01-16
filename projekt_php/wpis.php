@@ -8,17 +8,7 @@ if (!empty($_POST)) {
         $wpis = $_POST['wpis'];
         $date = $_POST['date'];
         $time = $_POST['time'];
-
-        if (!preg_match('^[0-9]{4}-[0-9]{2}-[0-9]{2}$' ,$date))
-        {
-            
-            $date = date('Y-m-d');
-        }
-
-        if (!preg_match('^[0-9]{2}:[0-9]{2}$' ,$time))
-        {
-            $time = date('H:i');
-        }
+        
 
         $all_blogs = array_diff(scandir('./blogs'), ['.', '..']);
 
@@ -84,34 +74,52 @@ if (!empty($_POST)) {
     <title>Wpis do bloga</title>
 	<script type="text/javascript">
 		var fileCount = 0;
+
+        function makeTwoDigitNumber(n) {
+            return n<10?"0"+n:n;
+        }
+
+        function getCurrentDate() {
+			var date = new Date();
+			return date.getFullYear() + '-' + makeTwoDigitNumber(date.getMonth()+1) + '-' + makeTwoDigitNumber(date.getDate());
+		}
+
+		function getCurrentTime() {
+			var date = new Date();
+			return makeTwoDigitNumber(date.getHours()) + ':' + makeTwoDigitNumber(date.getMinutes());
+		}
 		
 		function setDateAndTime() {
 			document.getElementById('date').value = getCurrentDate();
 			document.getElementById('time').value = getCurrentTime();
 			
 		}
+        /*
+        0123456789
+        17:10
+        */
+		
 
-		function getCurrentDate() {
-			var date = new Date();
-			return date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate();
-		}
-
-		function getCurrentTime() {
-			var date = new Date();
-			return date.getHours() + ':' + date.getMinutes();
-		}
-
-		function validateDate() { //TODO dokoncz
+		function validateDate() {
 			var date = document.getElementById('date').value;
 			var year = parseInt(date.slice(0, 4));
 			var month = parseInt(date.slice(5, 7));
 			var day = parseInt(date.slice(8, 10));
-			if (date > getCurrentDate() || year < 0 || day < 1 || day > 31 || month < 0 || month > 11) {
+			if (date > getCurrentDate() || year < 0 || day < 1 || day > 31 || month < 0 || month > 11 || date[4] != '-' || date[7] != '-') {
 				setDateAndTime();
 			}
 		}
 
-		function addAttachment() {
+        function validateTime() {
+            var time = document.getElementById('time').value;
+			var hour = parseInt(date.slice(0, 2));
+			var minute = parseInt(date.slice(3, 5));
+			if (date > getCurrentTime() || hour > 24 || hour < 0 || minute > 59 || minute < 0 || time[7] != ':') {
+				setDateAndTime();
+			}
+        }
+
+		function addAttachment() {//TO DO wysyłanie liczby załączników
 			fileCount++;
 			var br = document.createElement('br');
 			var label = document.createElement('label');
@@ -135,15 +143,17 @@ if (!empty($_POST)) {
         <label> Hasło: </label> <input type="password" name="password" /><br />
         <label> Wpis: </label> <textarea name="wpis" rows="8" cols="64" method="post"></textarea><br />
         <label> Data: </label> <input type="text" name="date" id="date" onchange="validateDate()"><br />
-        <label> Czas: </label> <input type="text" name="time" id="time"><br />
+        <label> Czas: </label> <input type="text" name="time" id="time" onchange="validateTime()"><br />
 		<div id="files">
-		<button type="button" onclick="addAttachment()">Dodaj załącznik</button>
-		</div>
+        </div>
+        <button type="button" onclick="addAttachment()">Dodaj załącznik</button><br />
         <input type="submit" value="Wyślij" /><br />
         <input type="reset" value="Wyczyść formularz">
     </form>
 
-    <?php include 'menu.php'; ?>
+    <?php 
+    include 'chat.html';
+    include 'menu.php'; ?>
 
 </body>
 

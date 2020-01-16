@@ -65,7 +65,10 @@ if (!empty($_POST)) {
         <input type="hidden" name="wpis" value="<?php echo $_POST['wpis'];?>"/>
     </form>
 
-    <?php include 'menu.php'; ?>
+    <?php 
+	include 'chat.html';
+	include 'menu.php';
+	?>
 
 </body>
 

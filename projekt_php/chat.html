@@ -1,0 +1,57 @@
+<script>
+
+    function sendMessage() {
+        username = document.getElementById("username").value;
+        message = document.getElementById("message").value;
+
+        console.log(username + " " + message + "    " + "username=" + username + "&message=" + message);
+
+        if (message.length != "") {
+            var xmlhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("textarea").innerHTML = this.responseText;
+                }
+            };
+
+            xmlhttp.open("POST", "receiver.php", true);
+            xmlhttp.send("username=" + username + "&message=" + message);
+        }
+    }
+
+    function toggleChat() {
+         if (document.getElementById("czat").style.visibility == 'hidden') {
+            document.getElementById("czat").style.visibility = 'visible';
+         } else {
+            document.getElementById("czat").style.visibility = 'hidden';
+         }
+    }
+
+
+
+    // const eventSource = new EventSource('stream.php');
+    // eventSource.addEventListener('chat', (e) => {
+    //     var data = JSON.parse(e.data);
+    //     textarea.value += data.username + '> ' + data.message + '\n';
+    //     textarea.scrollTop = textarea.scrollHeight;
+    // });
+
+</script>
+
+<form>
+    <input type="checkbox" onclick="toggleChat()"><label> Włącz czat </label>
+    <div id="czat" style="visibility: hidden;">
+        <textarea id="textarea" readonly></textarea><br />
+
+        <!-- <textarea readonly><?php
+            foreach ($data as $row) {
+              echo $row['username'] . "> " . $row['message'] . "\n";
+            }
+            ?></textarea> -->
+        <label> Nazwa: </label><input id="username" placeholder="Przedstaw się" /><br>
+        <label> Wiadomość: </label><textarea id="message" placeholder="Bądź miły na czacie :)"></textarea>
+        <input type="submit" value="Wyślij" onclick="sendMessage()" /><br />
+    </div>
+
+</form>

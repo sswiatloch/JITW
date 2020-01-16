@@ -8,17 +8,16 @@
 	<link rel="stylesheet" media="screen" type="text/css" href="style.css"/>
 	<link rel="stylesheet" media="print" type="text/css" href="style_print.css"/>
 	<link rel="alternate stylesheet" media="screen" title="alternatywny" type="text/css" href="style_alt.css"/>
-	<script type="text/javascript">
-		function getStyles() {
-			var menu = document.getElementById('menu')
-		}
-	</script>
+	<link rel="alternate stylesheet" media="screen" title="czerwony" type="text/css" href="style_red.css"/>
+	<link rel="alternate stylesheet" media="screen" title="zielony" type="text/css" href="style_green.css"/>
+	<link rel="alternate stylesheet" media="screen" title="niebieski" type="text/css" href="style_blue.css"/>
+	<script type="text/javascript" src="altstyles.js"></script>
 </head>
 
-<body>
+<body onload="loadAltStyleList()">
 <div id="main">
 	<div id="menu">
-		<ul>
+		<ul id="menulist">
 			<li>Menu</li>
 			<li><a href="http://charon.kis.agh.edu.pl/~swiastan/cw1.html">Ćwiczenie 1</a></li>
 			<li><a href="http://charon.kis.agh.edu.pl/~swiastan/cw2.html">Ćwiczenie 2</a></li>

@@ -86,6 +86,8 @@
         }
     }
 
+    include 'chat.html';
+
     include 'menu.php';
     ?>
 

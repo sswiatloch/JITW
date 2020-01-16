@@ -56,7 +56,10 @@ if (!empty($_POST)) {
 		<input type="reset" value="Wyczyść formularz"><br />
 	</form>
 
-	<?php include 'menu.php'; ?>
+	<?php 
+	include 'chat.html';
+	include 'menu.php';
+	?>
 
 </body>
 
